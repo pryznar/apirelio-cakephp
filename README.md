@@ -14,7 +14,7 @@ Customer-aware API monitoring middleware for CakePHP 4.5 and 5.x. It captures ro
 ## Install in 30 seconds
 
 ```bash
-composer require apirelio/cakephp:^0.1
+composer require apirelio/cakephp:^1.0
 ```
 
 ```php
