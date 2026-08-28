@@ -32,6 +32,6 @@ jobs:
           extensions: curl, mbstring, intl
       - run: composer validate --strict
       - run: composer config --unset repositories.0
-      - run: composer update cakephp/cakephp -W --with "cakephp/cakephp:${{ matrix.cakephp-version }}" --no-interaction --prefer-dist
+      - run: composer update --with "cakephp/cakephp:${{ matrix.cakephp-version }}" --no-interaction --prefer-dist
       - run: composer phpstan
       - run: composer test
