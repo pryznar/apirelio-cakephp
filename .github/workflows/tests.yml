@@ -23,6 +23,8 @@ jobs:
             cakephp-version: "^5.0"
           - php-version: "8.4"
             cakephp-version: "^5.0"
+          - php-version: "8.5"
+            cakephp-version: "^5.0"
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
