@@ -1,0 +1,43 @@
+name: Integration problem
+description: Report a CakePHP middleware, route or customer resolver problem.
+title: "[Integration]: "
+labels: [integration]
+body:
+  - type: dropdown
+    id: cakephp-version
+    attributes:
+      label: CakePHP version
+      options:
+        - 5.x
+        - 4.6.x
+        - 4.5.x
+    validations:
+      required: true
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP version
+      placeholder: 8.3.12
+    validations:
+      required: true
+  - type: textarea
+    id: middleware-order
+    attributes:
+      label: Middleware order
+      description: Paste the relevant middleware queue without keys, credentials or customer payloads.
+      render: php
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Do not include request bodies, response bodies, credentials or personal data.
+    validations:
+      required: true

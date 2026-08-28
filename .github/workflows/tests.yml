@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - php-version: "8.2"
+            cakephp-version: "^4.5"
+          - php-version: "8.3"
+            cakephp-version: "^4.5"
+          - php-version: "8.2"
+            cakephp-version: "^5.0"
+          - php-version: "8.3"
+            cakephp-version: "^5.0"
+          - php-version: "8.4"
+            cakephp-version: "^5.0"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+          extensions: curl, mbstring, intl
+      - run: composer validate --strict
+      - run: composer config --unset repositories.0
+      - run: composer update cakephp/cakephp -W --with "cakephp/cakephp:${{ matrix.cakephp-version }}" --no-interaction --prefer-dist
+      - run: composer phpstan
+      - run: composer test
