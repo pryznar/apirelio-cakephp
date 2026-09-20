@@ -23,7 +23,7 @@ use Throwable;
 
 final class ApirelioMiddleware implements MiddlewareInterface
 {
-    public const VERSION = '1.0.0';
+    public const VERSION = '1.0.1';
 
     /** @var null|Closure(ServerRequestInterface): ?ApirelioCustomer */
     private ?Closure $customerResolver;
